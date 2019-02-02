@@ -2,8 +2,8 @@
 インタラクティブ動画を編集するためのツールになります。
 
 ## 編集方法
-下記のURLから編集を行います。
-[編集する](https://iris-jp.github.io/leadtap-generator/dist/index.html)
+下記のURLから編集を行います。  
+[編集する](https://iris-jp.github.io/leadtap-generator/dist/index.html)  
 ※編集してコードを生成するのみであれば、ソースコードをダウンロードをする必要はありません。  
   
 ## 編集方法
@@ -18,7 +18,7 @@
 
 ## 設置方法
 下記のリードタップviewerを使用してインタラクティブ動画を再生することが可能です。  
-リードタップviewerの詳細は下記のリポジトリを確認してください。
+リードタップviewerの詳細は下記のリポジトリを確認してください。  
 [GitHub - iris-jp/leadtap-view](https://github.com/iris-jp/leadtap-view)
 
 
