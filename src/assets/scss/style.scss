@@ -1,0 +1,414 @@
+@charset "utf-8";
+@import "_plyr";
+@import '_reset';
+
+/* ************************************************************************************ */
+/*
+	変数・共通クラス
+*/
+/* ************************************************************************************ */
+
+$gothic-family: "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", "Meiryo","メイリオ";
+$bgcolor : #efefef;
+$black: #22252B;
+
+/* ************************************************************************************ */
+/*
+	基本設定
+*/
+/* ************************************************************************************ */
+
+html{
+  font-size: 62.5%;
+  overflow-y: scroll;
+}
+
+*{
+  box-sizing: border-box !important;
+}
+
+body {
+	color: #333;
+  background-color: $bgcolor;
+	font-size: 1.0rem;
+  font-family: $gothic-family;
+  font-style: normal;
+  line-height: 1 !important;
+}
+
+.is-hide{
+  display: none;
+}
+
+.is-block{
+  display: block;
+}
+
+main{
+  display: block;
+  overflow: hidden;
+  width: 100%;
+}
+
+div.set_moviepath{
+  padding: 20px;
+  border-bottom: 1px solid #ccc;
+  background-color: #dfdfdf;
+  font-size: 1.2rem;
+
+  >div{
+    vertical-align: middle;
+  }
+
+  input.movie_assets{
+    width: 50%;
+    padding: 3px;
+    margin-top: 8px;
+  }
+}
+
+div.movie-layer{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+div.l-generator{
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  width: 100%;
+  margin: 20px auto;
+  padding: 0 20px;
+
+  div.l-movie{
+    width: 50%;
+    position: relative;
+
+    >div{
+      width: 50%;
+      position: fixed;
+    }
+
+    div.add_element{
+      margin-top: 20px;
+    }
+
+    div.initial_form{
+      border: 1px solid #cfcfcf;
+      background-color: #dfdfdf;
+      border-radius: 4px;
+      margin-top: 20px;
+      padding: 24px;
+      font-size: 1.2rem;
+
+      div.input_assets_path{
+
+      }
+
+      input.assets_path{
+        width: 80%;
+        padding: 3px;
+        margin-top: 8px;
+      }
+
+      div.input_show_eventcode{
+      }
+
+      input.show_eventcode{
+        width: 80%;
+        padding: 3px;
+        margin-top: 8px;
+        margin-bottom: 8px;
+      }
+    }
+
+    button.add_button-multiple{
+      font-size: 1.3rem;
+      background-color: #664433;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 8px 15px 5px 10px;
+    }
+
+    button.js-add_single.add_button-single{
+      font-size: 1.3rem;
+      background-color: #661111;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 8px 15px 5px 10px;
+    }
+
+    button.js-add_popup.add_button-popup{
+      font-size: 1.3rem;
+      background-color: #003355;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 8px 15px 5px 10px;
+    }
+
+    select.event_type{
+      font-size: 1.3rem;
+    }
+
+    button.add_event{
+      font-size: 1.3rem;
+      margin-left: 10px;
+    }
+
+    div.fix_event{
+      margin-top: 20px;
+
+      button{
+        font-size: 1.3rem;
+      }
+    }
+
+    textarea{
+      margin-top: 5px;
+      width: 100%;
+      height: 200px;
+      border-color: #ccc;
+      padding: 5px;
+      font-size: 1.3rem;
+    }
+  }
+
+  div.src{
+      position: relative;
+
+    div.grid{
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.4);
+
+      div > p{
+        padding: 6px 0 0 6px;
+        font-size: 1.0rem;
+        color: #fff;
+        opacity: 0.5;
+      }
+
+      span{
+        font-size: 0.8rem;
+      }
+
+      div.vertical{
+        position: absolute;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        width: 100%;
+
+        >div{
+          width: 10%;
+          border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+      }
+
+      div.horizontal{
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+
+        >div{
+          height: 10%;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+      }
+    }
+  }
+
+  div.l-elements{
+    margin-left: 40px;
+    width: calc(50% - 40px - 40px);
+  }
+
+  div.mv_element{
+
+    div.element{
+      margin-bottom: 30px;
+      background-color: #fff;
+      border-radius: 6px;
+
+      div{
+        font-size: 1.2rem;
+      }
+    }
+
+    div.multiple_button-inner{
+      margin-bottom: 20px;
+    }
+
+    h4{
+      padding-bottom: 10px;
+      border-bottom: 1px solid #444;
+    }
+
+    aside{
+      display: block;
+      font-size: 1.1rem;
+      color: #999;
+
+    }
+
+    div.element-inner{
+      padding: 20px;
+    }
+
+    div.child{
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flex;
+      display: -o-flex;
+      display: flex;
+    }
+
+    div.trackingcode{
+      margin-top: 20px;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flex;
+      display: -o-flex;
+      display: flex;
+      width: 100%;
+    }
+
+    div.left_column{
+      width: 30%;
+      padding-top: 10px;
+    }
+
+    h3{
+      font-size: 1.3rem;
+      font-weight: normal;
+      border-radius: 6px 6px 0 0;
+      position: relative;
+
+      a.bar{
+        width: 100%;
+        padding: 14px 0 12px 14px;
+        display: block;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      a.delete{
+        position: absolute;
+        top: 4px;
+        right: 4px;
+        text-decoration: none;
+
+        font-weight: normal;
+        font-size: 1.2rem;
+        z-index: 100;
+        cursor: pointer;
+
+        display: block;
+        padding: 9px 11px 10px 12px;
+        letter-spacing: 1px;
+        background-color: rgba(0, 0, 0, 0.4);
+        border-radius: 4px;
+        color: #fff;
+
+        &:hover{
+          opacity: 0.7;
+        }
+      }
+    }
+
+    .left_column_popup{
+      padding: 3px 0 0 0 !important;
+    }
+
+    div.right_column{
+      width: 70%;
+    }
+
+    div.right_column_popup{
+      width: 70%;
+      height: 35px;
+    }
+
+    div.right_column_single{
+      width: 70%;
+    }
+
+    div.single_button{
+      box-shadow: 1px 1px 20px rgba(0,0,0,0.11);
+
+      h3{
+        background-color: #661111;
+        color: #fff;
+      }
+    }
+
+    div.popup{
+      box-shadow: 1px 1px 20px rgba(0,0,0,0.11);
+
+      h3{
+        background-color: #003355;
+        color: #fff;
+      }
+    }
+
+    div.multiple_button{
+      box-shadow: 1px 1px 20px rgba(0,0,0,0.11);
+
+      h3{
+        background-color: #664433;
+        color: #fff;
+      }
+    }
+
+    h4{
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+    }
+
+    aside{
+      margin-top: 3px;
+      line-height: 1.55;
+    }
+
+    textarea{
+      margin-top: 5px;
+      width: 100%;
+      height: 200px;
+      border-color: #ccc;
+      padding: 5px;
+      font-size: 1.3rem;
+    }
+
+    input[type="radio"]{
+      display: inline;
+    }
+
+    input[type="textfield"]{
+      //width: 60%;
+      width: 100%;
+      margin-top: 5px;
+      padding: 5px;
+      border: 1px solid #ccc;
+      font-size: 1.3rem;
+    }
+
+    input.eventcode{
+      width: 100%;
+    }
+  }
+}
