@@ -180,6 +180,9 @@ var obj = new Array();
         var v4 = $('div.element' + j + ' input.button-b_asset').val();
         var v5 = $('div.element' + j + ' input.eventcode_a').val();
         var v6 = $('div.element' + j + ' input.eventcode_b').val();
+        //id設定完了
+        var v7 = $('div.element' + j + ' input.setid_a').val();
+        var v8 = $('div.element' + j + ' input.setid_a').val();
 
         //var slash1 = v3.lastIndexOf( "\\");
         //var assetName1 = assetsPath + v3.substr(slash1+1);
@@ -193,9 +196,9 @@ var obj = new Array();
           v2 = v0;
         }
 
-        actionList += '{type:"' + type + '",que:"' + v0 + '",action_a:"' + v1 + '",action_b:"' + v2 + '",imagePath_a:"' + v3 + '",imagePath_b:"' + v4 + '",gtag_a:"' + v5 + '",gtag_b:"' + v6 + '"} ,';
+        actionList += '{type:"' + type + '",que:"' + v0 + '",action_a:"' + v1 + '",action_b:"' + v2 + '",imagePath_a:"' + v3 + '",imagePath_b:"' + v4 + '",gtag_a:"' + v5 + '",gtag_b:"' + v6 + '",html_id_a:"' + v7 + '",html_id_b:"' + v8 + '"} ,';
 
-        var v = {type:type, que:v0 ,action_a:v1,action_b:v2,imagePath_a:v3,imagePath_b:v4,gtag_a: v5,gtag_b: v6};
+        var v = {type:type, que:v0 ,action_a:v1,action_b:v2,imagePath_a:v3,imagePath_b:v4,gtag_a: v5,gtag_b: v6,html_id_a: v7,html_id_b: v8};
         obj.push(v);
       }
 
@@ -207,15 +210,16 @@ var obj = new Array();
         var v3 = $('div.element' + j + ' input.layout_top').val() + '%';
         var v4 = $('div.element' + j + ' input.layout_left').val() + '%';
         var v5 = $('div.element' + j + ' input.eventcode').val();
-
+        //id設定完了
+        var v6 = $('div.element' + j + ' input.setid').val();
         if(v1 == ''){
           v1 = v0;
         }
         //var slash = v2.lastIndexOf( "\\");
         //var assetName = assetsPath + v2.substr(slash+1);
-        actionList += '{type:"' + type + '",que:"' + v0 + '",action:"' + v1 + '",imagePath:"' + v2 + '",top:"' + v3 + '",left:"' + v4 + '",gtag:"' + v5 + '"} ,';
+        actionList += '{type:"' + type + '",que:"' + v0 + '",action:"' + v1 + '",imagePath:"' + v2 + '",top:"' + v3 + '",left:"' + v4 + '",gtag:"' + v5 + '",html_id:"' + v6 + '"} ,';
 
-        var v = {type:type, que:v0 ,action:v1, imagePath:v2,top:v3,left: v4,gtag: v5};
+        var v = {type:type, que:v0 ,action:v1, imagePath:v2,top:v3,left: v4,gtag: v5,html_id: v6};
         obj.push(v);
       }
 
@@ -225,6 +229,8 @@ var obj = new Array();
         var v1 = $('div.element' + j + ' input.popup_asset').val();
         var v2 = $('div.element' + j + ' input.skip_time').val();
         var code = $('div.element' + j + ' input.eventcode').val();
+        //id設定完了
+        var vhtml_id = $('div.element' + j + ' input.setid').val();
 
         if(v2 == ''){
           v2 = v0;
@@ -234,7 +240,7 @@ var obj = new Array();
         //var assetName = assetsPath + v1.substr(slash+1);
 
         //actionList += '["' + type + '","' + assetName + '","' + v2 +'","' + code + '"]';
-        actionList += '{type:"' + type + '",que:"' + v0 + '",action:"' + v2 + '",imagePath:"' + v1 + '",gtag:"' + code + '"} ,';
+        actionList += '{type:"' + type + '",que:"' + v0 + '",action:"' + v2 + '",imagePath:"' + v1 + '",gtag:"' + code + '",html_id:"' + vhtml_id + '"} ,';
 
         var v = {type:type, que:v0 ,action:v2, imagePath:v1,gtag: code};
         obj.push(v);
@@ -246,6 +252,7 @@ var obj = new Array();
 
   //コードをタグに変換してテキストエリアに出力する
   function generateCode(){
+    //id設定完了
     var code = '<nav><button class="show_mirumaker_player">動画を見る</button></nav>';
     code += '<script>var MirumakerEventData = [{ v:1 ,moviePath:"' + movieFilePath + '", gtag:';
     code += '"' + $('input.show_movie_eventcode').val() + '"},';
@@ -328,6 +335,9 @@ var obj = new Array();
             //トラッキングコード
             $(trg).find('input.eventcode_a').val(data[i]['gtag_a']);
             $(trg).find('input.eventcode_b').val(data[i]['gtag_b']);
+            //id設定まだ
+            $(trg).find('input.setid_a').val(data[i]['html_id_a']);
+            $(trg).find('input.setid_b').val(data[i]['html_id_b']);
             break;
 
           case 'single':
@@ -346,6 +356,8 @@ var obj = new Array();
             $(trg).find('input.layout_top').val(top.slice(0, -1));
             //トラッキングコード
             $(trg).find('input.eventcode').val(data[i]['gtag']);
+            //id設定まだ
+            $(trg).find('input.setid').val(data[i]['html_id']);
             break;
           case 'popup':
             var trg = $('div.js-mv_element div.element'+(i+1)+'');
@@ -358,6 +370,8 @@ var obj = new Array();
             $(trg).find('input.skip_time').val(data[i]['action']);
             //トラッキングコード
             $(trg).find('input.eventcode').val(data[i]['gtag']);
+            //id設定まだ
+            $(trg).find('input.setid').val(data[i]['html_id']);
             break;
         }
       }

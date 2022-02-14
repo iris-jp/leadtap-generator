@@ -13,7 +13,7 @@
       <main>
         <div class="set_moviepath">
           <div>動画
-            <input type="textfield" name="movie_assets" value="./assets/mv/sample.mp4" class="movie_assets" placeholder="https://example.com/assets/mv/sample.mp4 or ./assets/mv/sample.mp4">
+            <input type="textfield" name="movie_assets" value="./assets/mv/sample.mp4" class="movie_assets">
             <button class="load">動画を読み込む</button>
           </div>
         </div>
@@ -26,6 +26,15 @@
                 </video>
                 <div class="grid"></div>
               </div>
+              <div >
+                Google Analyticsでイベント計測のための設定を行う場合には、<br/>
+                トラッキングコード、Click IDのいずれかにご入力ください。<br/><br/>
+                トラッキングコード：タグマネージャーを使用せず、イベントの各要素を直接指定する場合に入力<br/>
+                Click ID：タグマネージャーを使用して、トリガーをClick IDを指定して設定する場合に入力<br/>
+                (※ClickIDに使用できる文字は、:英数字と-_ です。<br/>
+                最初の文字は英字から始めてください。<br/>
+                他の要素と同一のものは使用不可)
+              </div> 
               <div class="add_element">
                 <button class="js-add_multiple add_button-multiple">「ボタンA/B」を登録</button>
                 <button class="js-add_single add_button-single">「こちらをクリックボタン」を登録</button>
@@ -35,6 +44,9 @@
                 </label>
               </div>
               <div class="initial_form">
+                <div class="input_assets_path">画像ファイルの格納場所（URL）を指定してください。<br>
+                  <input type="textfield" placeholder="例：http://www.interlogic.jp/images/" class="assets_path">
+                </div>
                 <div class="input_show_eventcode">動画再生時のイベントトラッキングコードを入力してください。<br>
                   <input type="textfield" placeholder="'event', 'アクション', {'event_category': 'カテゴリ','event_label': 'ラベル','value': 1}" class="show_eventcode show_movie_eventcode"><br>※イベントトラッキングをご利用される場合は Google Analytics トラッキングコードを必ず挿入してください。
                 </div>
@@ -64,7 +76,7 @@
                       <label>URL</label>
                     </div>
                     <div class="right_column">
-                      <input type="textfield" placeholder="https://example.com" class="get_url">
+                      <input type="textfield" placeholder="http://www.interlogic.jp/" class="get_url">
                     </div>
                   </div>
                   <div class="child">
@@ -83,12 +95,20 @@
                       <input type="textfield" placeholder="50" class="layout_top">
                     </div>
                   </div>
-                  <div class="trackingcode">
+                  <div class="trackingcodes">
                     <div class="left_column">
                       <label>トラッキングコード</label>
                     </div>
                     <div class="right_column">
                       <input type="textfield" placeholder="'event', 'アクション', {'event_category': 'カテゴリ','event_label': 'ラベル','value': 1}" class="eventcode js-eventcode">
+                    </div>
+                  </div>
+                  <div class="set_id">
+                    <div class="left_column">
+                      <label>click id 設定</label>
+                    </div>
+                    <div class="right_column">
+                      <input type="textfield"  placeholder="使用可能文字:英数字-_ 最初の文字は英字 他の要素と同一のものは使用不可" class="setid js-setid">
                     </div>
                   </div>
                 </div>
@@ -109,7 +129,7 @@
                       <label></label>スキップする時間（秒）/URL
                     </div>
                     <div class="right_column">
-                      <input type="textfield" placeholder="動画秒数値：120 || URLの場合：https://example.com" class="skip_time">
+                      <input type="textfield" placeholder="動画秒数値：120 || URLの場合：http://www.interlogic.jp/" class="skip_time">
                       <aside>
                         スキップ先の秒数を入力してください。動画再開する場合は空欄にしてください。<br>
                         Webサイトを開く場合は、URLを入力してください。
@@ -124,6 +144,14 @@
                       <input type="textfield" placeholder="'event', 'アクション', {'event_category': 'カテゴリ','event_label': 'ラベル','value': 1}" class="eventcode js-eventcode">
                     </div>
                   </div>
+                  <div class="set_id">
+                    <div class="left_column">
+                      <label>click id 設定</label>
+                    </div>
+                    <div class="right_column">
+                      <input type="textfield"  placeholder="使用可能文字:英数字-_ 最初の文字は英字 他の要素と同一のものは使用不可" class="setid   js-setid">
+                    </div>
+                    </div>
                 </div>
               </div>
               <div class="multiple_button element">
@@ -144,7 +172,7 @@
                         <label>スキップする時間（秒）／URL</label>
                       </div>
                       <div class="right_column">
-                        <input type="textfield" placeholder="動画秒数値：120 || URLの場合：https://example.com" class="skip_time_a">
+                        <input type="textfield" placeholder="動画秒数値：120 || URLの場合：http://www.interlogic.jp/" class="skip_time_a">
                         <aside>
                           スキップ先の秒数を入力してください。動画再開する場合は空欄にしてください。<br>
                           Webサイトを開く場合は、URLを入力してください。
@@ -160,6 +188,14 @@
                         <input type="textfield" placeholder="'event', 'アクション', {'event_category': 'カテゴリ','event_label': 'ラベル','value': 1}" class="eventcode eventcode_a js-eventcode">
                       </div>
                     </div>
+                    <div class="set_id">
+                      <div class="left_column">
+                        <label>click id 設定</label>
+                      </div>
+                      <div class="right_column">
+                        <input type="textfield"  placeholder="使用可能文字:英数字-_ 最初の文字は英字 他の要素と同一のものは使用不可" class="setid setid_a  js-setid">
+                      </div>
+                      </div>
                   </div>
                   <div class="multiple_button-inner">
                     <h4>ボタンB</h4>
@@ -176,7 +212,7 @@
                         <label>スキップする時間（秒）／URL</label>
                       </div>
                       <div class="right_column">
-                        <input type="textfield" placeholder="動画秒数値：120 || URLの場合：https://example.com" class="skip_time_b">
+                        <input type="textfield" placeholder="動画秒数値：120 || URLの場合：http://www.interlogic.jp/" class="skip_time_b">
                         <aside>
                           スキップ先の秒数を入力してください。動画再開する場合は空欄にしてください。<br>
                           Webサイトを開く場合は、URLを入力してください。
@@ -191,6 +227,14 @@
                         <input type="textfield" placeholder="'event', 'アクション', {'event_category': 'カテゴリ','event_label': 'ラベル','value': 1}" class="eventcode eventcode_b js-eventcode">
                       </div>
                     </div>
+                    <div class="set_id">
+                      <div class="left_column">
+                        <label>click id 設定</label>
+                      </div>
+                      <div class="right_column">
+                        <input type="textfield"  placeholder="使用可能文字:英数字-_ 最初の文字は英字 他の要素と同一のものは使用不可" class="setid setid_b  js-setid">
+                      </div>
+                      </div>
                   </div>
                 </div>
               </div>
