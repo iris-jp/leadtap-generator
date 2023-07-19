@@ -181,7 +181,7 @@ var obj = new Array();
                 var v6 = $('div.element' + j + ' input.eventcode_b').val();
                 //id設定完了
                 var v7 = $('div.element' + j + ' input.setid_a').val();
-                var v8 = $('div.element' + j + ' input.setid_a').val();
+                var v8 = $('div.element' + j + ' input.setid_b').val();
 
                 //var slash1 = v3.lastIndexOf( "\\");
                 //var assetName1 = assetsPath + v3.substr(slash1+1);
